@@ -1,0 +1,410 @@
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (19.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (23.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (26.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (15.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (5.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2026-04-14 13:37:58.456069', '2026-04-14 13:37:58.456072') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20260414000001)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "last_login_at" datetime(6), "play_count" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_name" ON "players" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000001') RETURNING "version"[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreateCharacterMasters (20260414000002)
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "character_masters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_character_masters_on_name" ON "character_masters" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000002') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreatePlayerCharacters (20260414000003)
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "player_characters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer NOT NULL, "character_master_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68bfc33b9f"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_a9ea3479ae"
+FOREIGN KEY ("character_master_id")
+  REFERENCES "character_masters" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_player_characters_on_player_id" ON "player_characters" ("player_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_player_characters_on_character_master_id" ON "player_characters" ("character_master_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_player_characters_on_player_id_and_character_master_id" ON "player_characters" ("player_id", "character_master_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000003') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreatePlayHistories (20260414000004)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "play_histories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer NOT NULL, "played_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5512517b24"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_play_histories_on_player_id" ON "play_histories" ("player_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_play_histories_on_player_id_and_played_at" ON "play_histories" ("player_id", "played_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000004') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreateScoreHistories (20260414000005)
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "score_histories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "play_history_id" integer NOT NULL, "score" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8d2a28f797"
+FOREIGN KEY ("play_history_id")
+  REFERENCES "play_histories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_score_histories_on_play_history_id" ON "score_histories" ("play_history_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000005') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-2"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-2"], ["last_login_at", "2026-04-14 13:38:08.324757"], ["play_count", 0], ["created_at", "2026-04-14 13:38:08.343143"], ["updated_at", "2026-04-14 13:38:08.343143"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCharacterMaster Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "character_masters" WHERE LOWER("character_masters"."name") = LOWER(?) LIMIT ?[0m  [["name", "character-1"], ["LIMIT", 1]]
+  [1m[36mCharacterMaster Create (0.2ms)[0m  [1m[32mINSERT INTO "character_masters" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "character-1"], ["created_at", "2026-04-14 13:38:08.362366"], ["updated_at", "2026-04-14 13:38:08.362366"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mPlayerCharacter Create (0.7ms)[0m  [1m[32mINSERT INTO "player_characters" ("player_id", "character_master_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["character_master_id", 1], ["created_at", "2026-04-14 13:38:08.371293"], ["updated_at", "2026-04-14 13:38:08.371293"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mPlayer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "AAA"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "AAA"], ["last_login_at", "2026-04-14 13:38:08.403041"], ["play_count", 0], ["created_at", "2026-04-14 13:38:08.406109"], ["updated_at", "2026-04-14 13:38:08.406109"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "BBB"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "BBB"], ["last_login_at", "2026-04-14 13:38:08.409416"], ["play_count", 0], ["created_at", "2026-04-14 13:38:08.412336"], ["updated_at", "2026-04-14 13:38:08.412336"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/players" for 127.0.0.1 at 2026-04-14 22:38:08 +0900
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."updated_at" DESC, "players"."id" DESC[0m
+  [1m[36mPlayerCharacter Load (0.2ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Started POST "/players" for 127.0.0.1 at 2026-04-14 22:38:08 +0900
+Processing by PlayersController#create as HTML
+  Parameters: {"player" => {"name" => "New Player"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "New Player"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "New Player"], ["last_login_at", nil], ["play_count", 0], ["created_at", "2026-04-14 13:38:08.703888"], ["updated_at", "2026-04-14 13:38:08.703888"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.1ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 201 Created in 40ms (Views: 0.1ms | ActiveRecord: 2.2ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-4"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-4"], ["last_login_at", "2026-04-13 13:38:08.728458"], ["play_count", 0], ["created_at", "2026-04-14 13:38:08.731601"], ["updated_at", "2026-04-14 13:38:08.731601"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/login" for 127.0.0.1 at 2026-04-14 22:38:08 +0900
+Processing by PlayersController#login as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) AND "players"."id" != ? LIMIT ?[0m  [["name", "player-4"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "last_login_at" = ?, "updated_at" = ? WHERE "players"."id" = ?[0m  [["last_login_at", "2026-04-14 13:38:08.823915"], ["updated_at", "2026-04-14 13:38:08.826111"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.0ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.0ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.9ms (5 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-5"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-5"], ["last_login_at", "2026-04-14 13:38:08.836222"], ["play_count", 0], ["created_at", "2026-04-14 13:38:08.837780"], ["updated_at", "2026-04-14 13:38:08.837780"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/play_histories" for 127.0.0.1 at 2026-04-14 22:38:08 +0900
+Processing by PlayHistoriesController#create as HTML
+  Parameters: {"play_history" => {"played_at" => "2026-04-14 13:38:08 UTC"}, "player_id" => "1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayHistory Create (0.8ms)[0m  [1m[32mINSERT INTO "play_histories" ("player_id", "played_at", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["played_at", "2026-04-14 13:38:08"], ["created_at", "2026-04-14 13:38:08.927530"], ["updated_at", "2026-04-14 13:38:08.927530"]]
+  [1m[36mPlayer Update All (0.1ms)[0m  [1m[33mUPDATE "players" SET "play_count" = COALESCE("play_count", 0) + ? WHERE "players"."id" = ?[0m  [["play_count", 1], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 19ms (Views: 0.1ms | ActiveRecord: 1.0ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-2"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.7ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-2"], ["last_login_at", "2026-04-14 15:34:02.271378"], ["play_count", 0], ["created_at", "2026-04-14 15:34:02.293822"], ["updated_at", "2026-04-14 15:34:02.293822"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCharacterMaster Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "character_masters" WHERE LOWER("character_masters"."name") = LOWER(?) LIMIT ?[0m  [["name", "character-1"], ["LIMIT", 1]]
+  [1m[36mCharacterMaster Create (0.1ms)[0m  [1m[32mINSERT INTO "character_masters" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "character-1"], ["created_at", "2026-04-14 15:34:02.316953"], ["updated_at", "2026-04-14 15:34:02.316953"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mPlayerCharacter Create (0.8ms)[0m  [1m[32mINSERT INTO "player_characters" ("player_id", "character_master_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["character_master_id", 1], ["created_at", "2026-04-14 15:34:02.325506"], ["updated_at", "2026-04-14 15:34:02.325506"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mPlayer Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "AAA"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "AAA"], ["last_login_at", "2026-04-14 15:34:02.359497"], ["play_count", 0], ["created_at", "2026-04-14 15:34:02.363095"], ["updated_at", "2026-04-14 15:34:02.363095"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "BBB"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "BBB"], ["last_login_at", "2026-04-14 15:34:02.366554"], ["play_count", 0], ["created_at", "2026-04-14 15:34:02.369484"], ["updated_at", "2026-04-14 15:34:02.369484"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/players" for 127.0.0.1 at 2026-04-15 00:34:02 +0900
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."updated_at" DESC, "players"."id" DESC[0m
+  [1m[36mPlayerCharacter Load (0.3ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+Completed 200 OK in 36ms (Views: 0.4ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Started POST "/players" for 127.0.0.1 at 2026-04-15 00:34:02 +0900
+Processing by PlayersController#create as HTML
+  Parameters: {"player" => {"name" => "New Player"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "New Player"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "New Player"], ["last_login_at", nil], ["play_count", 0], ["created_at", "2026-04-14 15:34:02.518674"], ["updated_at", "2026-04-14 15:34:02.518674"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.2ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.2ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 201 Created in 63ms (Views: 0.3ms | ActiveRecord: 2.1ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-4"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.8ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-4"], ["last_login_at", "2026-04-13 15:34:02.569995"], ["play_count", 0], ["created_at", "2026-04-14 15:34:02.575756"], ["updated_at", "2026-04-14 15:34:02.575756"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/login" for 127.0.0.1 at 2026-04-15 00:34:02 +0900
+Processing by PlayersController#login as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) AND "players"."id" != ? LIMIT ?[0m  [["name", "player-4"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "last_login_at" = ?, "updated_at" = ? WHERE "players"."id" = ?[0m  [["last_login_at", "2026-04-14 15:34:02.618410"], ["updated_at", "2026-04-14 15:34:02.623096"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.0ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 200 OK in 45ms (Views: 0.2ms | ActiveRecord: 2.2ms (5 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-5"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-5"], ["last_login_at", "2026-04-14 15:34:02.644377"], ["play_count", 0], ["created_at", "2026-04-14 15:34:02.647549"], ["updated_at", "2026-04-14 15:34:02.647549"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/play_histories" for 127.0.0.1 at 2026-04-15 00:34:02 +0900
+Processing by PlayHistoriesController#create as HTML
+  Parameters: {"play_history" => {"played_at" => "2026-04-14 15:34:02 UTC"}, "player_id" => "1"}
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayHistory Create (1.0ms)[0m  [1m[32mINSERT INTO "play_histories" ("player_id", "played_at", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["played_at", "2026-04-14 15:34:02"], ["created_at", "2026-04-14 15:34:02.687307"], ["updated_at", "2026-04-14 15:34:02.687307"]]
+  [1m[36mPlayer Update All (0.1ms)[0m  [1m[33mUPDATE "players" SET "play_count" = COALESCE("play_count", 0) + ? WHERE "players"."id" = ?[0m  [["play_count", 1], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 24ms (Views: 0.1ms | ActiveRecord: 1.3ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-2"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-2"], ["last_login_at", "2026-04-14 15:39:03.063231"], ["play_count", 0], ["created_at", "2026-04-14 15:39:03.081888"], ["updated_at", "2026-04-14 15:39:03.081888"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCharacterMaster Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "character_masters" WHERE LOWER("character_masters"."name") = LOWER(?) LIMIT ?[0m  [["name", "character-1"], ["LIMIT", 1]]
+  [1m[36mCharacterMaster Create (0.1ms)[0m  [1m[32mINSERT INTO "character_masters" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "character-1"], ["created_at", "2026-04-14 15:39:03.098846"], ["updated_at", "2026-04-14 15:39:03.098846"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mPlayerCharacter Create (0.8ms)[0m  [1m[32mINSERT INTO "player_characters" ("player_id", "character_master_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["character_master_id", 1], ["created_at", "2026-04-14 15:39:03.108412"], ["updated_at", "2026-04-14 15:39:03.108412"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mPlayer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "AAA"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "AAA"], ["last_login_at", "2026-04-14 15:39:03.139292"], ["play_count", 0], ["created_at", "2026-04-14 15:39:03.141808"], ["updated_at", "2026-04-14 15:39:03.141808"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "BBB"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "BBB"], ["last_login_at", "2026-04-14 15:39:03.144494"], ["play_count", 0], ["created_at", "2026-04-14 15:39:03.146585"], ["updated_at", "2026-04-14 15:39:03.146585"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/players" for 127.0.0.1 at 2026-04-15 00:39:03 +0900
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."updated_at" DESC, "players"."id" DESC[0m
+  [1m[36mPlayerCharacter Load (0.4ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+Completed 200 OK in 36ms (Views: 0.3ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Started POST "/players" for 127.0.0.1 at 2026-04-15 00:39:03 +0900
+Processing by PlayersController#create as HTML
+  Parameters: {"player" => {"name" => "New Player"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "New Player"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "New Player"], ["last_login_at", nil], ["play_count", 0], ["created_at", "2026-04-14 15:39:03.282742"], ["updated_at", "2026-04-14 15:39:03.282742"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.1ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 201 Created in 38ms (Views: 0.1ms | ActiveRecord: 2.5ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-4"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-4"], ["last_login_at", "2026-04-13 15:39:03.304537"], ["play_count", 0], ["created_at", "2026-04-14 15:39:03.307363"], ["updated_at", "2026-04-14 15:39:03.307363"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/login" for 127.0.0.1 at 2026-04-15 00:39:03 +0900
+Processing by PlayersController#login as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) AND "players"."id" != ? LIMIT ?[0m  [["name", "player-4"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "last_login_at" = ?, "updated_at" = ? WHERE "players"."id" = ?[0m  [["last_login_at", "2026-04-14 15:39:03.326232"], ["updated_at", "2026-04-14 15:39:03.330450"], ["id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.1ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 2.2ms (5 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-5"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-5"], ["last_login_at", "2026-04-14 15:39:03.346019"], ["play_count", 0], ["created_at", "2026-04-14 15:39:03.348788"], ["updated_at", "2026-04-14 15:39:03.348788"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/play_histories" for 127.0.0.1 at 2026-04-15 00:39:03 +0900
+Processing by PlayHistoriesController#create as HTML
+  Parameters: {"play_history" => {"played_at" => "2026-04-14 15:39:03 UTC"}, "player_id" => "1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayHistory Create (1.1ms)[0m  [1m[32mINSERT INTO "play_histories" ("player_id", "played_at", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["played_at", "2026-04-14 15:39:03"], ["created_at", "2026-04-14 15:39:03.381286"], ["updated_at", "2026-04-14 15:39:03.381286"]]
+  [1m[36mPlayer Update All (0.1ms)[0m  [1m[33mUPDATE "players" SET "play_count" = COALESCE("play_count", 0) + ? WHERE "players"."id" = ?[0m  [["play_count", 1], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 20ms (Views: 0.1ms | ActiveRecord: 1.3ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-2"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.6ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-2"], ["last_login_at", "2026-04-14 15:42:50.212017"], ["play_count", 0], ["created_at", "2026-04-14 15:42:50.230763"], ["updated_at", "2026-04-14 15:42:50.230763"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCharacterMaster Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "character_masters" WHERE LOWER("character_masters"."name") = LOWER(?) LIMIT ?[0m  [["name", "character-1"], ["LIMIT", 1]]
+  [1m[36mCharacterMaster Create (0.1ms)[0m  [1m[32mINSERT INTO "character_masters" ("name", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["name", "character-1"], ["created_at", "2026-04-14 15:42:50.251901"], ["updated_at", "2026-04-14 15:42:50.251901"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mPlayerCharacter Create (0.5ms)[0m  [1m[32mINSERT INTO "player_characters" ("player_id", "character_master_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["character_master_id", 1], ["created_at", "2026-04-14 15:42:50.260609"], ["updated_at", "2026-04-14 15:42:50.260609"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "player_characters" WHERE "player_characters"."character_master_id" = ? AND "player_characters"."player_id" = ? LIMIT ?[0m  [["character_master_id", 1], ["player_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mPlayer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE "players"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "AAA"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "AAA"], ["last_login_at", "2026-04-14 15:42:50.287712"], ["play_count", 0], ["created_at", "2026-04-14 15:42:50.290390"], ["updated_at", "2026-04-14 15:42:50.290390"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "BBB"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "BBB"], ["last_login_at", "2026-04-14 15:42:50.292522"], ["play_count", 0], ["created_at", "2026-04-14 15:42:50.293869"], ["updated_at", "2026-04-14 15:42:50.293869"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/players" for 127.0.0.1 at 2026-04-15 00:42:50 +0900
+Processing by PlayersController#index as HTML
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."updated_at" DESC, "players"."id" DESC[0m
+  [1m[36mPlayerCharacter Load (0.3ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+  [1m[36mPlayHistory Load (0.2ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" IN (?, ?)[0m  [["player_id", 2], ["player_id", 1]]
+Completed 200 OK in 35ms (Views: 0.3ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+Started POST "/players" for 127.0.0.1 at 2026-04-15 00:42:50 +0900
+Processing by PlayersController#create as HTML
+  Parameters: {"player" => {"name" => "New Player"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "New Player"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "New Player"], ["last_login_at", nil], ["play_count", 0], ["created_at", "2026-04-14 15:42:50.419447"], ["updated_at", "2026-04-14 15:42:50.419447"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.2ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 201 Created in 33ms (Views: 0.1ms | ActiveRecord: 2.1ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-4"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.5ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-4"], ["last_login_at", "2026-04-13 15:42:50.439881"], ["play_count", 0], ["created_at", "2026-04-14 15:42:50.442549"], ["updated_at", "2026-04-14 15:42:50.442549"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/login" for 127.0.0.1 at 2026-04-15 00:42:50 +0900
+Processing by PlayersController#login as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) AND "players"."id" != ? LIMIT ?[0m  [["name", "player-4"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "last_login_at" = ?, "updated_at" = ? WHERE "players"."id" = ?[0m  [["last_login_at", "2026-04-14 15:42:50.459401"], ["updated_at", "2026-04-14 15:42:50.462675"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPlayerCharacter Load (0.1ms)[0m  [1m[34mSELECT "player_characters".* FROM "player_characters" WHERE "player_characters"."player_id" = ?[0m  [["player_id", 1]]
+  [1m[36mPlayHistory Load (0.1ms)[0m  [1m[34mSELECT "play_histories".* FROM "play_histories" WHERE "play_histories"."player_id" = ? ORDER BY "play_histories"."played_at" DESC, "play_histories"."id" DESC[0m  [["player_id", 1]]
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.3ms (5 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "players" WHERE LOWER("players"."name") = LOWER(?) LIMIT ?[0m  [["name", "player-5"], ["LIMIT", 1]]
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("name", "last_login_at", "play_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "player-5"], ["last_login_at", "2026-04-14 15:42:50.473769"], ["play_count", 0], ["created_at", "2026-04-14 15:42:50.475472"], ["updated_at", "2026-04-14 15:42:50.475472"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/players/1/play_histories" for 127.0.0.1 at 2026-04-15 00:42:50 +0900
+Processing by PlayHistoriesController#create as HTML
+  Parameters: {"play_history" => {"played_at" => "2026-04-14 15:42:50 UTC"}, "player_id" => "1"}
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPlayHistory Create (1.2ms)[0m  [1m[32mINSERT INTO "play_histories" ("player_id", "played_at", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["player_id", 1], ["played_at", "2026-04-14 15:42:50"], ["created_at", "2026-04-14 15:42:50.511598"], ["updated_at", "2026-04-14 15:42:50.511598"]]
+  [1m[36mPlayer Update All (0.1ms)[0m  [1m[33mUPDATE "players" SET "play_count" = COALESCE("play_count", 0) + ? WHERE "players"."id" = ?[0m  [["play_count", 1], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 201 Created in 26ms (Views: 0.1ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK TRANSACTION[0m

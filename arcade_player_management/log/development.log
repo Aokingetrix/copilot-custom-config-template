@@ -1,0 +1,51 @@
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-04-14 13:34:30.122022', '2026-04-14 13:34:30.122025') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePlayers (20260414000001)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "players" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "last_login_at" datetime(6), "play_count" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_players_on_name" ON "players" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000001') RETURNING "version"[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreateCharacterMasters (20260414000002)
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "character_masters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_character_masters_on_name" ON "character_masters" ("name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000002') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreatePlayerCharacters (20260414000003)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "player_characters" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer NOT NULL, "character_master_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_68bfc33b9f"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+, CONSTRAINT "fk_rails_a9ea3479ae"
+FOREIGN KEY ("character_master_id")
+  REFERENCES "character_masters" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_player_characters_on_player_id" ON "player_characters" ("player_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_player_characters_on_character_master_id" ON "player_characters" ("character_master_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_player_characters_on_player_id_and_character_master_id" ON "player_characters" ("player_id", "character_master_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000003') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreatePlayHistories (20260414000004)
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "play_histories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer NOT NULL, "played_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5512517b24"
+FOREIGN KEY ("player_id")
+  REFERENCES "players" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_play_histories_on_player_id" ON "play_histories" ("player_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_play_histories_on_player_id_and_played_at" ON "play_histories" ("player_id", "played_at")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000004') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+Migrating to CreateScoreHistories (20260414000005)
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mBEGIN immediate TRANSACTION[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "score_histories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "play_history_id" integer NOT NULL, "score" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_8d2a28f797"
+FOREIGN KEY ("play_history_id")
+  REFERENCES "play_histories" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_score_histories_on_play_history_id" ON "score_histories" ("play_history_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260414000005') RETURNING "version"[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mCOMMIT TRANSACTION[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
