@@ -76,6 +76,14 @@
 - `spec/requests/*`
 - `spec/factories/*`
 
+## フロントエンドの初版
+
+- 置き場所は `frontend/`
+- 技術は React + TypeScript + Vite + Tailwind CSS + TanStack Query
+- 画面の初版はプレイヤー一覧、詳細、編集、ログイン操作をまとめた管理ダッシュボード
+- API 接続先は `VITE_API_BASE_URL` で切り替え可能にする
+- まずは Rails API を読むところまでを最小実装にし、必要になった機能から追加する
+
 ## 確認したい点
 
 - キャラマスタの初期データは手動投入か、seed で用意するか

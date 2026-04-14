@@ -1,5 +1,5 @@
 ---
-applyTo: "src/components/**,src/hooks/**,src/app/**,*.tsx,*.jsx"
+applyTo: "frontend/src/**,frontend/*.tsx,frontend/*.ts,src/components/**,src/hooks/**,src/app/**,*.tsx,*.jsx"  
 ---
 # フロントエンド共通指示
 
