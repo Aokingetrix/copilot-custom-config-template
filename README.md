@@ -76,6 +76,7 @@ This is an example layout. Adapt it to your own project as needed.
 │   ├── generate-test.prompt.md          # ❸ Generate test code
 │   ├── pr-description.prompt.md         # ❸ Auto-generate PR descriptions
 │   ├── create-rails-model.prompt.md     # ❸ Scaffold Rails models
+│   ├── arcade-player-management.prompt.md # ❸ Rails starter prompt for this project
 │   └── code-review.prompt.md            # ❸ Code review
 ├── agents/
 │   ├── front-reviewer.agent.md          # ❹ Frontend review specialist
@@ -131,6 +132,8 @@ Reusable task templates that show up when you type `/` in Copilot Chat. Input va
 | `generate-test.prompt.md` | `/generate-test` | Generate tests for a target file |
 | `pr-description.prompt.md` | `/pr-description` | Generate PR description from git diff |
 | `create-rails-model.prompt.md` | `/create-rails-model` | Scaffold Model + Migration + RSpec |
+| `arcade-player-management.prompt.md` | `/arcade-player-management` | Start the Rails backend for this project |
+| `arcade-player-management-implementation.prompt.md` | `/arcade-player-management-implementation` | Start implementation work |
 | `code-review.prompt.md` | `/code-review` | Review a specified file |
 
 ### ❹ `*.agent.md` (Agent Picker)
